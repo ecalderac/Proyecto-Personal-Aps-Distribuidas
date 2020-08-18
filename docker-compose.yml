@@ -1,41 +1,19 @@
-#version: "3" # specify docker-compose version
-
-# # Define the services/containers to be run
-# services:
-#     angular: # name of the first service
-#         hostname: localhost
-#         build: frontend # specify the directory of the Dockerfile
-#         ports:
-#             - "8181:80" # specify port forewarding
-
-#     express: #name of the second service
-#         build: backend # specify the directory of the Dockerfile
-#         ports:
-#             - "3000:3000" #specify ports forewarding
-#         links:
-#             - mongodb # link this service to the database service
-
-#     mongodb: # name of the third service
-#         image: mongo # specify image to build container from
-#         ports:
-#             - "27017:27017" # specify port forewarding
-
 #----------------------------------------------------------#
 #Solo backend y Base de Datos (Nodejs-MongoDB)
 version: "3"
 
 services:
     backend:
-        container_name: backend-nfc
+        container_name: Backend-NFC
         restart: always
-        build: .
+        build: backend
         ports:
             - "5000:3000"
-        links:
-            - mongodb
-    mongodb:
-        container_name: bd-nfc
-        image: mongo 
-        ports: 
-            - "27018:27017" 
+        # links:
+        #     - mongodb
+    # mongodb:
+    #     container_name: BD-NFC
+    #     image: mongo 
+    #     ports: 
+    #         - "27018:27017" 
 #----------------------------------------------------------#
